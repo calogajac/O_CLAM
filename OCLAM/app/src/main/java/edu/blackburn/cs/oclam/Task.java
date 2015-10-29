@@ -40,7 +40,7 @@ public class Task {
         this.tag = tag;
     }
 
-    public boolean isDone() {
+    public boolean getDone() {
         return done;
     }
 
