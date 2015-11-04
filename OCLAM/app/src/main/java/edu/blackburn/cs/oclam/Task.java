@@ -7,9 +7,9 @@ public class Task {
     String name;
     String description;
     String tag;
-    boolean done;
+    int done;
 
-    public Task(String name, String description, String tag, boolean done){
+    public Task(String name, String description, String tag, int done){
         this.name = name;
         this.description = description;
         this.tag = tag;
@@ -40,11 +40,11 @@ public class Task {
         this.tag = tag;
     }
 
-    public boolean getDone() {
+    public int getDone() {
         return done;
     }
 
-    public void setDone(boolean done) {
+    public void setDone(int done) {
         this.done = done;
     }
 }

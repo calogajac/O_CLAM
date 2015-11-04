@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">OCLAM</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_task_creation_form">TaskCreationForm</string>
 </resources>
