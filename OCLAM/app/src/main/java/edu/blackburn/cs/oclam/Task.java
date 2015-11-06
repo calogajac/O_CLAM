@@ -44,7 +44,5 @@ public class Task {
         return done;
     }
 
-    public void setDone(int done) {
-        this.done = done;
-    }
+    public void setDone(int done) {this.done = done;}
 }
