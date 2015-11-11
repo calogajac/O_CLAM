@@ -9,11 +9,11 @@ public class Task {
     String tag;
     int done;
 
-    public Task(String name, String description, String tag, int done){
+    public Task(String name, String description, String tag){
         this.name = name;
         this.description = description;
         this.tag = tag;
-        this.done = done;
+        this.done = 0;
     }
 
     public String getName() {
@@ -44,5 +44,5 @@ public class Task {
         return done;
     }
 
-    public void setDone(int done) {this.done = done;}
+    public void setDone() {this.done = 1;}
 }

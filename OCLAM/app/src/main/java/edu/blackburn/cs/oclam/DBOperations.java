@@ -24,8 +24,9 @@ public class DBOperations {
     public static final String TABLE_NAME = "tasks";
     public static final int DATABASE_VERSION = 1;
 
-    private static final String DATABASE_CREATE = "CREATE_TABLE"+ TABLE_NAME + "(" + TASK_NAME
-            + " TEXT," + TASK_DESCRIPTION+ "TEXT," + TASK_TAG + "TEXT," + TASK_DONE + "INTEGER );";
+    private static final String TABLE_CREATE = "create table if not exists tasks (id integer primary key autoincrement, "
+            + TASK_NAME + " TEXT," + TASK_DESCRIPTION+ "TEXT," + TASK_TAG + "TEXT," + TASK_DONE + "INTEGER );";
+
 
     private final Context context;
 
@@ -49,7 +50,7 @@ public class DBOperations {
         public void onCreate(SQLiteDatabase db)
         {
             try{
-                db.execSQL(DATABASE_CREATE);
+                db.execSQL(TABLE_CREATE);
             } catch(SQLException e){
                 e.printStackTrace();
             }

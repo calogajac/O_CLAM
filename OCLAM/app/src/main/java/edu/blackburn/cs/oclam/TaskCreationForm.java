@@ -7,8 +7,11 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.EditText;
 
 public class TaskCreationForm extends AppCompatActivity {
+
+    DBOperations db = new DBOperations(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +29,17 @@ public class TaskCreationForm extends AppCompatActivity {
     public void cancel(View view){
         Intent mintent = new Intent(TaskCreationForm.this, MainActivity.class);
         TaskCreationForm.this.startActivity(mintent);
+    }
+
+    public void addTask(View view){
+        EditText taskName = (EditText)findViewById(R.id.name);
+        EditText taskTag = (EditText)findViewById(R.id.tag);
+        EditText taskDescription = (EditText)findViewById(R.id.description);
+
+        db.open();
+        long id = db.insertTask(taskName.getText().toString(), taskDescription.getText().toString(),
+                taskTag.getText().toString(), 0);
+        db.close();
     }
 
 }
