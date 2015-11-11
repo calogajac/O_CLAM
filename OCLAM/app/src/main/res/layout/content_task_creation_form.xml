@@ -41,22 +41,14 @@
         android:layout_marginTop="21dp"
         android:layout_alignParentStart="true" />
 
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tasks"
-        android:layout_below="@+id/tagTitle"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="24dp" />
-
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/description"
-        android:layout_alignStart="@+id/tasks"
         android:layout_alignParentEnd="true"
         android:layout_above="@+id/create"
-        android:layout_below="@+id/descriptionTitle" />
+        android:layout_below="@+id/descriptionTitle"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -83,6 +75,16 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Description"
         android:id="@+id/descriptionTitle"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/editText"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:layout_below="@+id/tagTitle"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp"
+        android:layout_alignEnd="@+id/description" />
 </RelativeLayout>
