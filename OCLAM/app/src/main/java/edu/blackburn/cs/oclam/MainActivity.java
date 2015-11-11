@@ -14,13 +14,34 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity {
 
 
+    static DBOperations OCLAMDB;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        openDB();
     }
+
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+
+        closeDB();
+    }
+
+    private void openDB(){
+        OCLAMDB = new DBOperations(this);
+        OCLAMDB.open();
+    }
+
+    private void closeDB(){
+        OCLAMDB.close();
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
