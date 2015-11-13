@@ -60,8 +60,6 @@ public class TaskCreationForm extends AppCompatActivity {
         //Creates new task using the name, description, and tag
         Task task = new Task(taskName.getText().toString(), taskDescription.getText().toString(),
                 taskTag.getText().toString());
-
-
     }
 
 }

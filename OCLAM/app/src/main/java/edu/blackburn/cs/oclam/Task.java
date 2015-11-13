@@ -86,7 +86,13 @@ public class Task {
     /**
      * Setter for the done tag of the task
      */
-    public void setDone() {this.done = 1;}
+    public void setDone() {
+        if(done == 0){
+            this.done = 1;
+        }else{
+            this.done = 0;
+        }
+    }
 
     /**
      * Updates the task with the user's new information and updates the DB

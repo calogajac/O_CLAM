@@ -1,5 +1,9 @@
 package edu.blackburn.cs.oclam;
 
+import android.app.Instrumentation;
+import android.view.View;
+import android.widget.EditText;
+
 import junit.framework.TestCase;
 
 /**
@@ -7,11 +11,7 @@ import junit.framework.TestCase;
  */
 public class TaskCreationFormTest extends TestCase {
 
-    public void testCreate() throws Exception {
-
-    }
-
-    public void testCancel() throws Exception {
+    public void testAddTask() throws Exception {
 
     }
 }
