@@ -75,6 +75,7 @@ public class DBOperations {
         {
             try{
                 db.execSQL(TABLE_CREATE);
+                Log.d(TAG, "Table Created");
             } catch(SQLException e){
                 e.printStackTrace();
             }
