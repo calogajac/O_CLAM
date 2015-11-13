@@ -57,7 +57,7 @@ public class TaskCreationForm extends AppCompatActivity {
         EditText taskName = (EditText)findViewById(R.id.name);
         EditText taskTag = (EditText)findViewById(R.id.tag);
         EditText taskDescription = (EditText)findViewById(R.id.description);
-
+        //Creates new task using the name, description, and tag
         Task task = new Task(taskName.getText().toString(), taskDescription.getText().toString(),
                 taskTag.getText().toString());
 
