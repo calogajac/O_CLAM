@@ -11,6 +11,7 @@ import android.widget.EditText;
 
 public class TaskCreationForm extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,8 +35,10 @@ public class TaskCreationForm extends AppCompatActivity {
         EditText taskTag = (EditText)findViewById(R.id.tag);
         EditText taskDescription = (EditText)findViewById(R.id.description);
 
-        long id = MainActivity.OCLAMDB.insertTask(taskName.getText().toString(), taskDescription.getText().toString(),
-                taskTag.getText().toString(), 0);
+        Task task = new Task(taskName.getText().toString(), taskDescription.getText().toString(),
+                taskTag.getText().toString());
+
+
     }
 
 }

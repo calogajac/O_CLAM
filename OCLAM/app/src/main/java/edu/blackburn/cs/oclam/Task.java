@@ -1,7 +1,9 @@
 package edu.blackburn.cs.oclam;
 
 /**
- * Created by caleb.long on 10/27/2015.
+ *  This Class is the creator of our task objects
+ *  Takes the information gotten from the user interface
+ *  Created by caleb.long on 10/27/2015.
  */
 public class Task {
     String name;
@@ -9,40 +11,95 @@ public class Task {
     String tag;
     int done;
 
-    public Task(String name, String description, String tag){
+    /**
+     * Constructor for our task objects
+     * @param name: the name of the task created
+     * @param description: a short description of what the task is
+     * @param tag: what category the task falls under
+     */
+    public Task( String name, String description, String tag){
         this.name = name;
         this.description = description;
         this.tag = tag;
-        this.done = 0;
+        this.done = 0;//no booleans in sqlite, only integers 0=false 1=true
+
+        //Calls the DB helper to insert this task into the DB
+        long id = MainActivity.OCLAMDB.insertTask(name, description, tag, 0);
     }
 
+    /**
+     * Getter for the name of the task
+     * @return
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Setter for name of the task
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Getter for the description of the task
+     * @return
+     */
     public String getDescription() {
         return description;
     }
 
+    /**
+     * Setter for the description of the task
+     * @param description
+     */
     public void setDescription(String description) {
         this.description = description;
     }
 
+    /**
+     * Getter for the tag of the task
+     * @return
+     */
     public String getTag() {
         return tag;
     }
 
+    /**
+     * Setter for the tag of the task
+     * @param tag
+     */
     public void setTag(String tag) {
         this.tag = tag;
     }
 
+    /**
+     * Getter for the done tag of the task
+     * @return
+     */
     public int getDone() {
         return done;
     }
 
+    /**
+     * Setter for the done tag of the task
+     */
     public void setDone() {this.done = 1;}
+
+    /**
+     * Updates the task with the user's new information and updates the DB
+     * @param nname: the new name of the task
+     * @param ndescription: the new description of the task
+     * @param ntag: the new tag of the task
+     */
+    protected void updateTask(String nname, String ndescription, String ntag){
+        setName(nname);
+        setDescription(ndescription);
+        setTag(ntag);
+
+        //need someway to get the row id
+        //MainActivity.OCLAMDB.changeTask(id, name, description, tag, 0);
+    }
 }
