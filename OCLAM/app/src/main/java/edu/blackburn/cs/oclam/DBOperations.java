@@ -25,13 +25,12 @@ public class DBOperations {
     private static final String TAG = "DBOperations";
 
     //Names for the DB and the table as well as DB version number
-    public static final String DATABASE_NAME = "O_CLAM_db";
-    public static final String TABLE_NAME = "tasks";
-    public static final int DATABASE_VERSION = 1;
+    public static final String DATABASE_NAME = "OCLAM_DB";
+    public static final String TABLE_NAME = "Tasks";
+    public static final int DATABASE_VERSION = 2;
 
     //SQL statement for creating the table
-    private static final String TABLE_CREATE = "create table if not exists tasks (id integer primary key autoincrement, "
-            + TASK_NAME + " TEXT," + TASK_DESCRIPTION+ "TEXT," + TASK_TAG + "TEXT," + TASK_DONE + "INTEGER );";
+    private static final String TABLE_CREATE = "CREATE TABLE IF NOT EXISTS Tasks (id integer primary key autoincrement, task_name TEXT, task_des TEXT, task_tag TEXT, task_done INTEGER)";
 
 
     //The context of where the DB helper is created
@@ -67,18 +66,12 @@ public class DBOperations {
 
         /**
          * Creates the table in the database
-         * Exception caught if table is unable to be created
          * @param db: our database
          */
         @Override
-        public void onCreate(SQLiteDatabase db)
-        {
-            try{
+        public void onCreate(SQLiteDatabase db) {
                 db.execSQL(TABLE_CREATE);
                 Log.d(TAG, "Table Created");
-            } catch(SQLException e){
-                e.printStackTrace();
-            }
         }
 
         /**
