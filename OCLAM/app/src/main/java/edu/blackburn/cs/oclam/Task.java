@@ -10,6 +10,7 @@ public class Task {
     String description;
     String tag;
     int done;
+    long id;
 
     /**
      * Constructor for our task objects
@@ -24,7 +25,7 @@ public class Task {
         this.done = 0;//no booleans in sqlite, only integers 0=false 1=true
 
         //Calls the DB helper to insert this task into the DB
-        long id = MainActivity.OCLAMDB.insertTask(name, description, tag, 0);
+        this.id = MainActivity.OCLAMDB.insertTask(name, description, tag, 0);
     }
 
     /**
@@ -86,7 +87,7 @@ public class Task {
     /**
      * Setter for the done tag of the task
      */
-    public void setDone() {this.done = 1;}
+    public void setDone(int ndone) {this.done = ndone;}
 
     /**
      * Updates the task with the user's new information and updates the DB
@@ -94,12 +95,13 @@ public class Task {
      * @param ndescription: the new description of the task
      * @param ntag: the new tag of the task
      */
-    protected void updateTask(String nname, String ndescription, String ntag){
+    protected void updateTask(String nname, String ndescription, String ntag, int ndone){
+        //Update the task object
         setName(nname);
         setDescription(ndescription);
         setTag(ntag);
-
-        //need someway to get the row id
-        //MainActivity.OCLAMDB.changeTask(id, name, description, tag, 0);
+        setDone(ndone);
+        //Update the entry in the database
+        MainActivity.OCLAMDB.changeTask(id, nname, ndescription, ntag, ndone);
     }
 }

@@ -126,7 +126,7 @@ public class DBOperations {
         initialValues.put(TASK_DESCRIPTION,description);
         initialValues.put(TASK_TAG, tag);
         initialValues.put(TASK_DONE, done);
-        //the insert returns a long that we don't have to catch but will just to be safe
+        //the insert returns a long that is the id of the row inserted
         return db.insert(TABLE_NAME, null, initialValues);
     }
 
