@@ -155,7 +155,7 @@ public class DBOperations {
      * @return the matching task to the id given
      * @throws SQLException catches if the query had any issues executing
      */
-    public Cursor getRecord(long rowId) throws SQLException
+    public Cursor getTask(long rowId) throws SQLException
     {
         Cursor mCursor =
                 db.query(true, TABLE_NAME, new String[] {TASK_NAME, TASK_DESCRIPTION, TASK_TAG, TASK_DONE}, TASK_ID + "="

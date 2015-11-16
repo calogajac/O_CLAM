@@ -7,31 +7,15 @@ import junit.framework.TestCase;
  */
 public class DBOperationsTest extends TestCase {
 
-    public void testOpen() throws Exception {
-
-    }
-
-    public void testClose() throws Exception {
-
-    }
-
     public void testInsertTask() throws Exception {
-
-    }
-
-    public void testDeleteTask() throws Exception {
-
-    }
-
-    public void testGetAllTasks() throws Exception {
-
-    }
-
-    public void testGetRecord() throws Exception {
-
+        Task testThing = new Task("Fool", "Robot", "ArmchairFace");
+        assertEquals(-1, testThing.getId());
     }
 
     public void testChangeTask() throws Exception {
-
+        Task testThing2 = new Task("Fool", "Robot", "ArmchairFace");
+        long testThingId = testThing2.getId();
+        MainActivity.OCLAMDB.changeTask(testThingId, "Fool", "Robot", "ArmchairFace", 1);
+        assertEquals(1, testThing2.getDone());
     }
 }
