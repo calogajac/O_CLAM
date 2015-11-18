@@ -1,4 +1,6 @@
-package edu.blackburn.cs.oclam;
+package edu.blackburn.cs.oclam.Database;
+
+import edu.blackburn.cs.oclam.UI.MainActivity;
 
 /**
  *  This Class is the creator of our task objects
@@ -10,7 +12,7 @@ public class Task {
     String description;
     String tag;
     int done;
-    final long id;
+    int id;
 
     /**
      * Constructor for our task objects
@@ -18,14 +20,12 @@ public class Task {
      * @param description: a short description of what the task is
      * @param tag: what category the task falls under
      */
-    public Task( String name, String description, String tag){
+    public Task( String name, String description, String tag, int id){
         this.name = name;
         this.description = description;
         this.tag = tag;
         this.done = 0;//no booleans in sqlite, only integers 0=false 1=true
-
-        //Calls the DB helper to insert this task into the DB
-        id = MainActivity.OCLAMDB.insertTask(name, description, tag, 0);
+        this.id = id;
     }
 
     /**
@@ -101,20 +101,15 @@ public class Task {
      */
     public long getId(){return id;}
 
-
     /**
-     * Updates the task with the user's new information and updates the DB
-     * @param nname: the new name of the task
-     * @param ndescription: the new description of the task
-     * @param ntag: the new tag of the task
+     * Method for updating a task that has been created
+     * @param nname: new name
+     * @param ndes: new description
+     * @param ntag: new tag
      */
-    protected void updateTask(String nname, String ndescription, String ntag){
-        //Update the task object
+    public void updateTask(String nname, String ndes, String ntag){
         setName(nname);
-        setDescription(ndescription);
+        setDescription(ndes);
         setTag(ntag);
-
-        //Update the task in the database
-        MainActivity.OCLAMDB.changeTask(id, nname, ndescription, ntag, done);
     }
 }

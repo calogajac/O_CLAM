@@ -2,6 +2,9 @@ package edu.blackburn.cs.oclam;
 
 import junit.framework.TestCase;
 
+import edu.blackburn.cs.oclam.Database.Task;
+import edu.blackburn.cs.oclam.UI.MainActivity;
+
 /**
  * Created by caleb.long on 11/12/2015.
  */

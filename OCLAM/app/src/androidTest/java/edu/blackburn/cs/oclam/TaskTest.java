@@ -2,6 +2,8 @@ package edu.blackburn.cs.oclam;
 
 import junit.framework.TestCase;
 
+import edu.blackburn.cs.oclam.Database.Task;
+
 /**
  * Created by caleb.long on 10/29/2015.
  */

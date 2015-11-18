@@ -1,4 +1,4 @@
-package edu.blackburn.cs.oclam;
+package edu.blackburn.cs.oclam.Database;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -146,7 +146,7 @@ public class DBOperations {
      */
     public Cursor getAllTasks()
     {
-        return db.query(TABLE_NAME, new String[] {TASK_NAME, TASK_DESCRIPTION, TASK_TAG, TASK_DONE},null,null,null,null,null);
+        return db.query(TABLE_NAME, new String[] {TASK_ID,TASK_NAME, TASK_DESCRIPTION, TASK_TAG, TASK_DONE},null,null,null,null,null);
     }
 
     /**

@@ -1,23 +1,26 @@
-package edu.blackburn.cs.oclam;
+package edu.blackburn.cs.oclam.UI;
 
+import android.content.Context;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import edu.blackburn.cs.oclam.Database.TaskList;
+import edu.blackburn.cs.oclam.R;
 
 /**
  * This class is the start of the application where the program begins when first launched
  */
 public class MainActivity extends AppCompatActivity {
 
-    //This variable is our DB helper that will have the methods for using our DB
-    //Protected so the project can see it but not the world
-    protected static DBOperations OCLAMDB;
+    //The context on the project
+    public static Context oclamContext;
+    //The list of tasks for the ListView
+    public static TaskList taskList;
 
     /**
      * Standard onCreate method for the creation of the application
@@ -30,40 +33,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        //Opening the DB method call
-        openDB();
+        oclamContext = getApplicationContext();
+        taskList = new TaskList();
     }
-
-    /**
-     * This method keeps our onCreate method clear of unneeded code
-     * Creates the DB helper and opens up our database for the application's use
-     */
-    private void openDB(){
-        OCLAMDB = new DBOperations(this);
-        OCLAMDB.open();
-    }
-
-
-    /**
-     * onDestroy method is for any clean up work that needs to be done when we close the app
-     * The database is closed in this step
-     */
-    @Override
-    protected void onDestroy(){
-        super.onDestroy();
-        //Calls the close DB method
-        closeDB();
-    }
-
-    /**
-     * This method keeps our onDestroy from having unneeded code
-     * Calls the DB's close method
-     */
-    private void closeDB(){
-        OCLAMDB.close();
-    }
-
 
     /**
      * Initializes the Options Menu for the application

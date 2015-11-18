@@ -1,13 +1,14 @@
-package edu.blackburn.cs.oclam;
+package edu.blackburn.cs.oclam.UI;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
+
+import edu.blackburn.cs.oclam.R;
+
 
 //This is a class that allows users to enter data into a form. The data passed into the form is
 //created as a task
@@ -54,12 +55,15 @@ public class TaskCreationForm extends AppCompatActivity {
      * Takes the text from each textview and uses the information to create a new task
      */
     public void addTask(View view){
+        //Reference to the EditText that the user puts their name in
         EditText taskName = (EditText)findViewById(R.id.name);
+        //EditText that the user puts the tag in
         EditText taskTag = (EditText)findViewById(R.id.tag);
+        //EditText that the user puts the task description in
         EditText taskDescription = (EditText)findViewById(R.id.description);
         //Creates new task using the name, description, and tag
-        Task task = new Task(taskName.getText().toString(), taskDescription.getText().toString(),
-                taskTag.getText().toString());
+        MainActivity.taskList.createTaskInDB(taskName.getText().toString(),
+                taskDescription.getText().toString(), taskTag.getText().toString());
     }
 
 }
