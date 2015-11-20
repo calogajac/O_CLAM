@@ -28,8 +28,8 @@ public class TaskCreationForm extends AppCompatActivity {
         setSupportActionBar(toolbar);
     }
 
-    /*
-     * Initiates the addTask() method and returns the user to MainActivity
+    /**
+     * Calls addTask(), then returns the user to MainActivity
      * @param view: the context of the click
      */
     public void create(View view){
@@ -40,8 +40,8 @@ public class TaskCreationForm extends AppCompatActivity {
         TaskCreationForm.this.startActivity(lintent);
     }
 
-    /*
-     * Returns the user to MainActivity
+    /**
+     * Cancels the creation of a task and sends the user back to MainActivity
      * @param view: the context of the click
      */
     public void cancel(View view){
@@ -51,8 +51,9 @@ public class TaskCreationForm extends AppCompatActivity {
         TaskCreationForm.this.startActivity(mintent);
     }
 
-    /*
-     * Takes the text from each textview and uses the information to create a new task
+    /**
+     * Takes the information provided by the user and sends it off to the createTaskInDB()
+     * @param view: the context of the click
      */
     public void addTask(View view){
         //Reference to the EditText that the user puts their name in

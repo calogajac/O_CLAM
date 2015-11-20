@@ -15,7 +15,8 @@ public class TaskList {
     //Protected so the project can see it but not the world
     protected static DBOperations OCLAMDB;
     private Cursor ALLTASKS;
-    public ArrayList tasksBag = new ArrayList();
+    public static ArrayList tasksBag = new ArrayList();
+    public static ArrayList<String> taskNames = new ArrayList<String>();
 
     public TaskList(){
         openDB();
@@ -47,10 +48,8 @@ public class TaskList {
      * @param ntag: the new tag of the task
      */
     protected void updateTask(String nname, String ndescription, String ntag){
-
         //Update the task in the database
         //OCLAMDB.changeTask(id, nname, ndescription, ntag, done);
-
     }
 
     /**
@@ -60,6 +59,7 @@ public class TaskList {
     public void insertTaskToList(Task task){
         //inserts into list
         tasksBag.add(task);
+        taskNames.add(task.getName());
     }
 
     /**
@@ -91,7 +91,5 @@ public class TaskList {
         long lid = OCLAMDB.insertTask(name, description, tag, 0);//catch the row id
         int id = (int) lid;
         Task ntask = new Task(name, description, tag, id);
-        insertTaskToList(ntask);
     }
-
 }

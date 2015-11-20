@@ -8,6 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import edu.blackburn.cs.oclam.Database.TaskList;
 import edu.blackburn.cs.oclam.R;
@@ -21,6 +23,10 @@ public class MainActivity extends AppCompatActivity {
     public static Context oclamContext;
     //The list of tasks for the ListView
     public static TaskList taskList;
+    //The ListView we will reference
+    public ListView tasksListing;
+    //The adapter that will take in whatever ArrayList it's given
+    public ArrayAdapter<String> adapter;
 
     /**
      * Standard onCreate method for the creation of the application
@@ -34,7 +40,15 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         oclamContext = getApplicationContext();
+        //Creates new TaskList
         taskList = new TaskList();
+        //Referencing the ListView that is on MainActivity
+        tasksListing = (ListView)findViewById(R.id.listView);
+        //Creates our adapter that takes in the taskNames list
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
+                TaskList.taskNames);
+        //Sets the recently created adapter to the ListView and populates it
+        tasksListing.setAdapter(adapter);
     }
 
     /**
@@ -79,5 +93,9 @@ public class MainActivity extends AppCompatActivity {
     public void onClickCreateButton(View view){
         Intent ourIntent = new Intent(MainActivity.this, TaskCreationForm.class);
         MainActivity.this.startActivity(ourIntent);
+        //Clears the adapter that is set to our ListView so that it can be repopulated when the
+        //user returns to MainActivity. This has to be done. Otherwise, the same task will appear
+        //in the ListView multiple times
+        adapter.clear();
     }
 }
