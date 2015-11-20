@@ -73,7 +73,7 @@ public class TaskList {
             String name = ALLTASKS.getString(ALLTASKS.getColumnIndexOrThrow(DBOperations.TASK_NAME));
             String description = ALLTASKS.getString(ALLTASKS.getColumnIndexOrThrow(DBOperations.TASK_DESCRIPTION));
             String tag = ALLTASKS.getString(ALLTASKS.getColumnIndexOrThrow(DBOperations.TASK_TAG));
-            int id = ALLTASKS.getColumnIndexOrThrow(DBOperations.TASK_ID);
+            int id = ALLTASKS.getInt(ALLTASKS.getColumnIndexOrThrow(DBOperations.TASK_ID));
             Task ntask = new Task(name, description, tag, id);
             insertTaskToList(ntask);
         }

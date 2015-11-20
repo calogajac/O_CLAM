@@ -30,7 +30,8 @@ public class DBOperations {
     public static final int DATABASE_VERSION = 2;
 
     //SQL statement for creating the table
-    private static final String TABLE_CREATE = "CREATE TABLE IF NOT EXISTS Tasks (id integer primary key autoincrement, task_name TEXT, task_des TEXT, task_tag TEXT, task_done INTEGER)";
+    private static final String TABLE_CREATE = "CREATE TABLE IF NOT EXISTS Tasks "+
+            "(id INTEGER primary key autoincrement, task_name TEXT, task_des TEXT, task_tag TEXT, task_done INTEGER)";
 
 
     //The context of where the DB helper is created
@@ -158,7 +159,7 @@ public class DBOperations {
     public Cursor getTask(long rowId) throws SQLException
     {
         Cursor mCursor =
-                db.query(true, TABLE_NAME, new String[] {TASK_NAME, TASK_DESCRIPTION, TASK_TAG, TASK_DONE}, TASK_ID + "="
+                db.query(true, TABLE_NAME, new String[] {TASK_ID, TASK_NAME, TASK_DESCRIPTION, TASK_TAG, TASK_DONE}, TASK_ID + "="
                         + rowId ,null,null,null,null,null );
         //Moves our query results to the front of the cursor just in case something else is there
         if (mCursor != null){
