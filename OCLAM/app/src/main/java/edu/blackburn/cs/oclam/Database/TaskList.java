@@ -27,6 +27,7 @@ public class TaskList {
     /**
      * This method keeps our onCreate method clear of unneeded code
      * Creates the DB helper and opens up our database for the application's use
+     * Tested through the DBOperations tests
      */
     private void openDB(){
         OCLAMDB = new DBOperations(MainActivity.oclamContext);
@@ -36,6 +37,7 @@ public class TaskList {
     /**
      * This method keeps our onDestroy from having unneeded code
      * Calls the DB's close method
+     * Tested through the DBOperations tests
      */
     private void closeDB(){
         OCLAMDB.close();
@@ -89,7 +91,5 @@ public class TaskList {
     public void createTaskInDB(String name, String description, String tag){
         //take user input and add it to the database
         long lid = OCLAMDB.insertTask(name, description, tag, 0);//catch the row id
-        int id = (int) lid;
-        Task ntask = new Task(name, description, tag, id);
     }
 }
