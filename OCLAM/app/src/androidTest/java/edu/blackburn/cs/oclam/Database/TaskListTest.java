@@ -22,6 +22,7 @@ public class TaskListTest extends AndroidTestCase {
         super.setUp();
         RenamingDelegatingContext context = new RenamingDelegatingContext(getContext(), "test_");
         testDB = new DBOperations(context);
+        testDB.open();
         allTasks = testDB.getAllTasks();
     }
 
@@ -30,20 +31,18 @@ public class TaskListTest extends AndroidTestCase {
     }
 
     public void testInsertTaskToList() throws Exception {
-        testDB.open();
         Task iTask = new Task("Dog", "Cat", "Bear", 1);
         boolean added1 = testList.tasksBag.add(iTask);
-        assertEquals(1, added1);
+        assertEquals(true, added1);
         boolean added2 = testList.taskNames.add(iTask.getName());
-        assertEquals(1, added2);
+        assertEquals(true, added2);
     }
 
     public void testCollectTasksFromDB() throws Exception {
-        //HOW DO YOU DO THIS???!!!!?!?!?!?!?!!?
+        //Every element in this method is tested elsewhere
     }
 
     public void testCreateTaskInDB() throws Exception {
-        testDB.open();
         long lid = testDB.insertTask("Fool", "Robot", "ArmchairFace", 0);
         assertTrue(lid != -1);
     }

@@ -48,19 +48,32 @@ public class DBOperations {
     public DBOperations(Context ctx)
     {
         this.context = ctx;
-        DBHelper = new DatabaseHelper(context);
+        DBHelper = DatabaseHelper.getInstance(context);
     }
 
     /**
      * The Helper class that contains the creation of the DB and the operations we need
      */
     private static class DatabaseHelper extends SQLiteOpenHelper {
+        private static DatabaseHelper dbInstance;
+
+        /**
+         * Singleton implementation
+         * @param context: the context of the application
+         * @return
+         */
+        public static synchronized DatabaseHelper getInstance(Context context) {
+            if( dbInstance == null){
+                dbInstance = new DatabaseHelper(context.getApplicationContext());
+            }
+            return dbInstance;
+        }
 
         /**
          * Constructor of the Helper that creates or opens the DB
          * @param context: the context that the DB is created
          */
-        DatabaseHelper(Context context)
+        private DatabaseHelper(Context context)
         {
             super(context, DATABASE_NAME, null, DATABASE_VERSION);
         }
