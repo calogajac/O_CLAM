@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -49,6 +50,14 @@ public class MainActivity extends AppCompatActivity {
                 TaskList.taskNames);
         //Sets the recently created adapter to the ListView and populates it
         tasksListing.setAdapter(adapter);
+        tasksListing.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                
+                Intent toView = new Intent(MainActivity.this, TaskCreationForm.class);
+                MainActivity.this.startActivity(toView);
+            }
+        });
     }
 
     /**

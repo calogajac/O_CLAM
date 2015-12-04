@@ -9,17 +9,17 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".UI.TaskCreationForm"
-    tools:showIn="@layout/activity_task_creation_form">
+    tools:context="edu.blackburn.cs.oclam.UI.EditTask"
+    tools:showIn="@layout/activity_edit_task">
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Save"
         android:id="@+id/save"
-        android:onClick="create"
         android:layout_alignTop="@+id/cancel"
-        android:layout_toEndOf="@+id/nameTitle" />
+        android:layout_toEndOf="@+id/nameTitle"
+        android:onClick="edit" />
 
     <Button
         android:layout_width="wrap_content"
@@ -87,4 +87,5 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="30dp"
         android:layout_alignEnd="@+id/description" />
+
 </RelativeLayout>

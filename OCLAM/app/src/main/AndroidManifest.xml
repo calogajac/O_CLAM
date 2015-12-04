@@ -21,6 +21,14 @@
         <activity
             android:name=".UI.TaskCreationForm"
             android:label="@string/title_activity_task_creation_form"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".UI.ViewTask"
+            android:label="@string/title_activity_view_task"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".UI.EditTask"
+            android:label="@string/title_activity_edit_task"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
