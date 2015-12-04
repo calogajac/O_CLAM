@@ -49,9 +49,23 @@ public class TaskList {
      * @param ndescription: the new description of the task
      * @param ntag: the new tag of the task
      */
-    protected void updateTask(String nname, String ndescription, String ntag){
+    public void updateTask(int index, String nname, String ndescription, String ntag){
+        Task uTask = (Task) tasksBag.get(index);
+        uTask.updateTask(nname, ndescription, ntag);
         //Update the task in the database
-        //OCLAMDB.changeTask(id, nname, ndescription, ntag, done);
+        OCLAMDB.changeTask(uTask.getId(), nname, ndescription, ntag, 0);
+    }
+
+    /**
+     * Method that deletes the task sent to it from the program
+     * @param rTask: the task that we need to delete
+     */
+    public void deleteTask(Task rTask){
+        //removes the task from the arraylists
+        tasksBag.remove(rTask);
+        taskNames.remove(rTask.getName());
+        //remove the task from the database
+        OCLAMDB.deleteTask(rTask.getId());
     }
 
     /**

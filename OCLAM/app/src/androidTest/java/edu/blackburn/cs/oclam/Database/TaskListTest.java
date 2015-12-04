@@ -16,6 +16,8 @@ public class TaskListTest extends AndroidTestCase {
     private TaskList testList;
     private DBOperations testDB;
     private Cursor allTasks;
+    private static ArrayList tasksBag = new ArrayList();
+    private static ArrayList<String> taskNames = new ArrayList<String>();
 
     @Override
     public void setUp() throws Exception {
@@ -30,11 +32,24 @@ public class TaskListTest extends AndroidTestCase {
         //not implemented yet
     }
 
+    public void testDeleteTask() throws Exception {
+        Task rTask = new Task("Dog", "Cat", "Bear", 1);
+        tasksBag.add(rTask);
+        taskNames.add(rTask.getName());
+        testDB.insertTask("Dog", "Cat", "Bear", 1);
+        boolean removed1 = tasksBag.remove(rTask);
+        assertEquals(true, removed1);
+        boolean removed2 = taskNames.remove(rTask.getName());
+        assertEquals(true, removed2);
+        boolean dbremove = testDB.deleteTask(rTask.getId());
+        assertEquals(true, dbremove);
+    }
+
     public void testInsertTaskToList() throws Exception {
-        Task iTask = new Task("Dog", "Cat", "Bear", 1);
-        boolean added1 = testList.tasksBag.add(iTask);
+        Task iTask = new Task("Dog", "Cat", "Bear", 2);
+        boolean added1 = tasksBag.add(iTask);
         assertEquals(true, added1);
-        boolean added2 = testList.taskNames.add(iTask.getName());
+        boolean added2 = taskNames.add(iTask.getName());
         assertEquals(true, added2);
     }
 
