@@ -106,4 +106,26 @@ public class TaskList {
         //take user input and add it to the database
         long lid = OCLAMDB.insertTask(name, description, tag, 0);//catch the row id
     }
+
+    public String getTaskDescription(String name){
+        for (int i = 0; i < tasksBag.size(); i++) {
+            Task test = (Task) tasksBag.get(i);
+            if(name.equals(test.getName())){
+                return test.getDescription();
+            }
+        }
+        String nullString = "Description Not Found";
+        return nullString;
+    }
+
+    public String getTaskTag(String name){
+        for (int i = 0; i < tasksBag.size(); i++) {
+            Task test = (Task) tasksBag.get(i);
+            if(name.equals(test.getName())){
+                return test.getTag();
+            }
+        }
+        String nullString = "Description Not Found";
+        return nullString;
+    }
 }

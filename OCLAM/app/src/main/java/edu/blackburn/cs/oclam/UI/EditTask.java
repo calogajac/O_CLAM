@@ -21,15 +21,15 @@ public class EditTask extends AppCompatActivity {
         setSupportActionBar(toolbar);
     }
 
-    public void edit(View view){
+    public void saveEdit(View view){
         //Reference to the EditText that the user puts their name in
         EditText taskName = (EditText)findViewById(R.id.name);
         //EditText that the user puts the tag in
         EditText taskTag = (EditText)findViewById(R.id.tag);
         //EditText that the user puts the task description in
         EditText taskDescription = (EditText)findViewById(R.id.description);
-        MainActivity.taskList.updateTask(taskName.getText().toString(),
-                taskDescription.getText().toString(), taskTag.getText().toString());
+        //MainActivity.taskList.updateTask(taskName.getText().toString(),
+                //taskDescription.getText().toString(), taskTag.getText().toString());
     }
 
     public void cancel(View view){

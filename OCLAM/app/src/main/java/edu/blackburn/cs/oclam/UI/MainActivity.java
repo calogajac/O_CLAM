@@ -53,8 +53,9 @@ public class MainActivity extends AppCompatActivity {
         tasksListing.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                
-                Intent toView = new Intent(MainActivity.this, TaskCreationForm.class);
+                String data = (String)parent.getItemAtPosition(position);
+                Intent toView = new Intent(MainActivity.this, ViewTask.class);
+                toView.putExtra("data", data);
                 MainActivity.this.startActivity(toView);
             }
         });

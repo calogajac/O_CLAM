@@ -19,7 +19,7 @@
         android:id="@+id/save"
         android:layout_alignTop="@+id/cancel"
         android:layout_toEndOf="@+id/nameTitle"
-        android:onClick="edit" />
+        android:onClick="saveEdit" />
 
     <Button
         android:layout_width="wrap_content"
