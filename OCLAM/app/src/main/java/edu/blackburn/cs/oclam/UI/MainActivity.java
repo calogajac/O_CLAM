@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import edu.blackburn.cs.oclam.Database.Task;
 import edu.blackburn.cs.oclam.Database.TaskList;
 import edu.blackburn.cs.oclam.R;
 
@@ -46,16 +47,17 @@ public class MainActivity extends AppCompatActivity {
         //Referencing the ListView that is on MainActivity
         tasksListing = (ListView)findViewById(R.id.listView);
         //Creates our adapter that takes in the taskNames list
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
-                TaskList.taskNames);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,
+                TaskList.tasksBag);
         //Sets the recently created adapter to the ListView and populates it
         tasksListing.setAdapter(adapter);
         tasksListing.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String data = (String)parent.getItemAtPosition(position);
+                Task data = (Task) parent.getItemAtPosition(position);
+                long iD = data.getId();
                 Intent toView = new Intent(MainActivity.this, ViewTask.class);
-                toView.putExtra("data", data);
+                toView.putExtra("iD", iD);
                 MainActivity.this.startActivity(toView);
             }
         });

@@ -112,4 +112,9 @@ public class Task {
         setDescription(ndes);
         setTag(ntag);
     }
+
+    @Override
+    public String toString(){
+        return this.getName();
+    }
 }

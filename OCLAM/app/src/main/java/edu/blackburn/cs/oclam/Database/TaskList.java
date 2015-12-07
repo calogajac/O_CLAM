@@ -107,10 +107,10 @@ public class TaskList {
         long lid = OCLAMDB.insertTask(name, description, tag, 0);//catch the row id
     }
 
-    public String getTaskDescription(String name){
+    public String getTaskDescription(long id){
         for (int i = 0; i < tasksBag.size(); i++) {
             Task test = (Task) tasksBag.get(i);
-            if(name.equals(test.getName())){
+            if(id == test.getId()){
                 return test.getDescription();
             }
         }
@@ -118,11 +118,22 @@ public class TaskList {
         return nullString;
     }
 
-    public String getTaskTag(String name){
+    public String getTaskTag(long id){
         for (int i = 0; i < tasksBag.size(); i++) {
             Task test = (Task) tasksBag.get(i);
-            if(name.equals(test.getName())){
+            if(id == test.getId()){
                 return test.getTag();
+            }
+        }
+        String nullString = "Description Not Found";
+        return nullString;
+    }
+
+    public String getTaskName(long id){
+        for (int i = 0; i < tasksBag.size(); i++) {
+            Task test = (Task) tasksBag.get(i);
+            if(id == test.getId()){
+                return test.getName();
             }
         }
         String nullString = "Description Not Found";

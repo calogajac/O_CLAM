@@ -22,13 +22,13 @@ public class ViewTask extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Intent intent = getIntent();
-        String data = intent.getExtras().getString("data");
+        long iD = intent.getLongExtra("iD", 0);
         TextView name = (TextView)findViewById(R.id.Name);
         TextView description = (TextView)findViewById(R.id.Description);
         TextView tag = (TextView)findViewById(R.id.Tag);
-        name.setText(data);
-        description.setText(MainActivity.taskList.getTaskDescription(data));
-        tag.setText(MainActivity.taskList.getTaskTag(data));
+        name.setText(MainActivity.taskList.getTaskName(iD));
+        description.setText(MainActivity.taskList.getTaskDescription(iD));
+        tag.setText(MainActivity.taskList.getTaskTag(iD));
     }
 
     public void edit(View view){
