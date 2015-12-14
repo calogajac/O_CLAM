@@ -10,16 +10,17 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="edu.blackburn.cs.oclam.UI.EditTask"
-    tools:showIn="@layout/activity_edit_task">
+    tools:showIn="@layout/activity_edit_task"
+    android:background="#5aa6fc">
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Save"
         android:id="@+id/save"
-        android:layout_alignTop="@+id/cancel"
-        android:layout_toEndOf="@+id/nameTitle"
-        android:onClick="saveEdit" />
+        android:onClick="saveEdit"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/nameTitle" />
 
     <Button
         android:layout_width="wrap_content"
@@ -27,9 +28,8 @@
         android:text="Cancel"
         android:id="@+id/cancel"
         android:onClick="cancel"
-        android:layout_marginStart="57dp"
-        android:layout_marginBottom="48dp"
-        android:layout_alignParentBottom="true"
+        android:layout_marginStart="58dp"
+        android:layout_alignTop="@+id/save"
         android:layout_toEndOf="@+id/save" />
 
     <EditText
@@ -45,10 +45,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/description"
+        android:layout_above="@+id/cancel"
+        android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_above="@+id/save"
-        android:layout_below="@+id/descriptionTitle"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/descriptionTitle" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -58,7 +58,8 @@
         android:id="@+id/tagTitle"
         android:layout_below="@+id/name"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="21dp" />
+        android:layout_marginTop="21dp"
+        android:textColor="#f7fafe" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -67,7 +68,8 @@
         android:text="Name"
         android:id="@+id/nameTitle"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="#f7fafe" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -77,7 +79,8 @@
         android:id="@+id/descriptionTitle"
         android:layout_below="@+id/tag"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="20dp"
+        android:textColor="#f7fafe" />
 
     <EditText
         android:layout_width="wrap_content"

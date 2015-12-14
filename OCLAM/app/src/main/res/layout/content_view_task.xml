@@ -10,7 +10,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="edu.blackburn.cs.oclam.UI.ViewTask"
-    tools:showIn="@layout/activity_view_task">
+    tools:showIn="@layout/activity_view_task"
+    android:background="#5aa6fc">
 
     <TextView
         android:layout_width="wrap_content"
@@ -21,7 +22,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:textSize="40dp"
-        android:text="Name" />
+        android:text="Name"
+        android:textColor="#ffffff" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -33,7 +35,8 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="30dp"
         android:layout_alignEnd="@+id/Name"
-        android:textSize="18dp" />
+        android:textSize="18dp"
+        android:textColor="#f7fafe" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -44,26 +47,26 @@
         android:layout_below="@+id/Tag"
         android:layout_alignParentStart="true"
         android:layout_marginTop="34dp"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:textColor="#ffffff" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Edit"
         android:id="@+id/button"
+        android:onClick="edit"
         android:layout_alignTop="@+id/button2"
-        android:layout_alignParentStart="true"
-        android:onClick="edit" />
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Delete"
         android:id="@+id/button2"
+        android:onClick="delete"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="54dp"
-        android:onClick="delete" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
